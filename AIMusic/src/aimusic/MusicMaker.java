@@ -28,7 +28,9 @@ public class MusicMaker
             this.key= key;
             rand = new Random();
         }
-    
+//First: It checks if the key is minor, the purpose of this is to make that we 
+//start the song on the note of the key, so we need to remove the "m" from the
+//minor notation for the player to work. It will remove the "m" and add that note first
     public String makeMusic()
         {
             boolean minorKey = false;
@@ -58,10 +60,12 @@ public class MusicMaker
                                 }
                                                                                                  
                         }
+//Second: It adds random notes in the key based off a random generator
                     else
                         {
                             pattern = pattern + notes.get(selector - 1) + "q ";
                         }
+//Third: every four notes it adds a measure (for proper notation)
                     
                     if((n % 4 == 0) && (n != 16))
                         {
@@ -69,10 +73,10 @@ public class MusicMaker
                         }
                     
                 }
-            
+//Returns the String of music notation
             return pattern;
         }
-    
+//Returns the "tonic" or first note of the scale
     public String getTrueKey()
         {
             return trueKey;
